@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Survey Response</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f7ff;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #3f51b5;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    button {
+      background: #3f51b5;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #303f9f;
+    }
+    #message {
+      text-align: center;
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Submit Survey Response</h2>
+    <form id="surveyResponseForm">
+      <div>
+        <label for="user_id">User ID</label>
+        <input type="text" name="user_id" id="user_id" required />
+      </div>
+
+      <div>
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+          <option value="">Select</option>
+          <option value="physical">Physical Health</option>
+          <option value="mental">Mental Health</option>
+          <option value="emotional">Emotional Wellbeing</option>
+          <option value="social">Social Life</option>
+          <option value="academic">Academic Stress</option>
+          <option value="family">Family Pressure</option>
+          <option value="sleep">Sleep Quality</option>
+          <option value="financial">Financial Worries</option>
+          <option value="career">Career Anxiety</option>
+          <option value="self-esteem">Self Esteem</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="question">Question</label>
+        <textarea name="question" id="question" rows="3" required></textarea>
+      </div>
+
+      <div>
+        <label for="answer">Answer</label>
+        <textarea name="answer" id="answer" rows="3" required></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <script src="survey-response.js"></script>
+</body>
+</html>

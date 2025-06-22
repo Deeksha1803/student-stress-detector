@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Entry</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>Log Your Mood</h2>
+    <form id="moodForm">
+      <input type="text" name="user_id" placeholder="User ID (from MongoDB)" required />
+      
+      <select name="mood" required>
+        <option value="">Select Mood</option>
+        <option value="Happy">Happy</option>
+        <option value="Sad">Sad</option>
+        <option value="Anxious">Anxious</option>
+        <option value="Angry">Angry</option>
+        <option value="Excited">Excited</option>
+        <option value="Stressed">Stressed</option>
+      </select>
+
+      <input type="number" name="intensity" min="1" max="10" placeholder="Intensity (1-10)" />
+      <textarea name="note" placeholder="Optional note or reason..."></textarea>
+
+      <button type="submit">Submit</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("moodForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const res = await fetch("/api/moods", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        if (res.ok) {
+          document.getElementById("message").innerText = "Mood logged successfully!";
+          this.reset();
+        } else {
+          document.getElementById("message").innerText = result.error || "Failed to submit.";
+        }
+      } catch (err) {
+        document.getElementById("message").innerText = "Error: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>

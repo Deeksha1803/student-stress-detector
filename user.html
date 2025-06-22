@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="user.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>User Dashboard</h1>
+    <form id="userForm">
+      <input type="text" name="full_name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="date" name="dob" placeholder="Date of Birth" required />
+      <select name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Keep just ONE message display area -->
+    <p id="message"></p>
+  </div>
+
+  <script src="user.js"></script>
+</body>
+</html>

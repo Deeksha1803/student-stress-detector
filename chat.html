@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat Message Entry</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Chat Message Form</h2>
+    <form id="chatForm">
+      <input type="text" name="user_id" placeholder="User ID" required />
+      <textarea name="message_content" placeholder="Enter your message..." required></textarea>
+      <select name="sender_type" required>
+        <option value="">Select Sender Type</option>
+        <option value="user">User</option>
+        <option value="chatbot">Chatbot</option>
+      </select>
+      <button type="submit">Submit</button>
+      <p id="message"></p>
+    </form>
+  </div>
+  <script src="chat.js"></script>
+</body>
+</html>
+ 
